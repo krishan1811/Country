@@ -9,7 +9,7 @@ const initialState = {
 
 export const countryApi = createAsyncThunk("components/country", async () => {
   try {
-    const data = await axios.get(`${window.location.origin}`);
+    const data = await axios.get(`https://country-ruddy.vercel.app/`);
     return data.data;
   } catch (error) {
     console.log(error);

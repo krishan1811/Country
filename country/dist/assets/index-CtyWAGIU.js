@@ -11392,7 +11392,7 @@ const Lm = {
     typeof WorkerGlobalScope < "u" &&
     self instanceof WorkerGlobalScope &&
     typeof self.importScripts == "function",
-  zw = (nc && window.location.href) || "http://localhost/7500",
+  zw = (nc && window.location.href) || "https://country-ruddy.vercel.app/",
   Fw = Object.freeze(
     Object.defineProperty(
       {
