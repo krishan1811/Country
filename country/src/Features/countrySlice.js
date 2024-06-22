@@ -9,7 +9,7 @@ const initialState = {
 
 export const countryApi = createAsyncThunk("components/country", async () => {
   try {
-    const data = await axios.get("http://localhost:7500/");
+    const data = await axios.get(`${window.location.origin}`);
     return data.data;
   } catch (error) {
     console.log(error);
