@@ -13,7 +13,7 @@ app.use(express.json({ limit: "50mb" }));
 
 // Database connection
 
-app.get("/api", async (req, res) => {
+app.get("/", async (req, res) => {
   await Countries.find()
     .then((result) => res.status(200).json(result))
     .catch((err) => console.log("Error in get", err));
