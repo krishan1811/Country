@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { countryApi } from "../Features/countrySlice.js";
 import { getCountry } from "../Features/subNavbarSlice.js";
 import { Link } from "react-router-dom";
+import Skeleton from "./Skeleton.jsx";
 
 export default function Card() {
   const countryInfo = useSelector((state) => state.countryData); // Getting Api Data
   const filterInfo = useSelector((state) => state.countryFilter.value);
   const optionInfo = useSelector((state) => state.countryFilter.continent);
-  
 
   const dispatch = useDispatch();
 
@@ -31,17 +31,25 @@ export default function Card() {
     }
   };
 
+  // Skeleton Logic
+  const loadingFunc = () => {
+    const skeletons = [];
+    if (countryInfo.isLoading === "loading") {
+      for (let index = 0; index < 9; index++) {
+        skeletons.push(<Skeleton key={index} />);
+      }
+    }
+    return skeletons;
+  };
+
   useEffect(() => {
     dispatch(countryApi());
   }, [dispatch]);
 
   return (
     <div>
-      {countryInfo.isLoading === "loading" && (
-        <div className="flex justify-center mt-16 text-6xl font-bold	">
-          Loading....
-        </div>
-      )}
+      {/* Calling and styling Skeleton  */}
+      <div className="flex flex-wrap justify-between mx-8">{loadingFunc()}</div>
 
       {countryInfo.isLoading === "succeeded" && (
         <div className="flex flex-wrap justify-between mx-8">
