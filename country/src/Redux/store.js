@@ -5,19 +5,13 @@ import darkModeReducer from "../Features/darkModeSlice.js";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
-import {
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
+  blacklist: ["countryFilter"],
 };
 const reducer = combineReducers({
   countryData: countryReducer,

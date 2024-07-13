@@ -35,7 +35,7 @@ export default function Card() {
   const loadingFunc = () => {
     const skeletons = [];
     if (countryInfo.isLoading === "loading") {
-      for (let index = 0; index < 9; index++) {
+      for (let index = 0; index < 18; index++) {
         skeletons.push(<Skeleton key={index} />);
       }
     }
